@@ -1,0 +1,25 @@
+{
+  "name": "pos-hardware-server",
+  "version": "1.0.0",
+  "main": "printer-server.ts",
+  "scripts": {
+    "start": "ts-node printer-server.ts",
+    "printer": "ts-node --project tsconfig.server.json printer-server.ts"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "escpos": "^3.0.0-alpha.6",
+    "escpos-network": "^3.0.0-alpha.5",
+    "escpos-usb": "^3.0.0-alpha.4",
+    "express": "^4.18.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.16"
+  }
+}
