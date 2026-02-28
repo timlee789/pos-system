@@ -25,9 +25,11 @@ export function SuccessOverlay() {
                 </div>
                 <h2 className="text-4xl font-black text-gray-900 mb-2">Thank You!</h2>
                 <p className="text-xl text-gray-500 mb-6">Payment Complete.</p>
-                <div className="bg-blue-50 border-2 border-blue-200 p-6 rounded-3xl w-full shadow-md">
-                    <p className="text-lg text-gray-800 font-bold leading-tight mb-2">🥤 If you ordered a Drink,</p>
-                    <p className="text-xl text-blue-800 font-black leading-tight">Please <span className="text-red-600 underline">SHOW RECEIPT</span> for a cup.</p>
+                <div className="bg-red-50 border-4 border-red-500 p-8 rounded-3xl w-full shadow-xl mt-4">
+                    <p className="text-4xl text-gray-900 font-extrabold leading-tight mb-4">🥤 If you ordered a Drink,</p>
+                    <p className="text-4xl text-gray-800 font-black leading-snug">
+                        Please <span className="block text-6xl text-white bg-red-600 py-6 px-4 rounded-3xl shadow-lg my-6 uppercase tracking-widest animate-pulse">Show Receipt</span> to the cashier for a cup!
+                    </p>
                 </div>
             </div>
         </div>

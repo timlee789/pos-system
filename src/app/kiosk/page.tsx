@@ -171,6 +171,7 @@ export default function KioskPage() {
 
     // Checkout Flow
     const startCheckout = () => {
+        setIsCartOpen(false);
         setShowTableModal(true);
     };
 
@@ -205,15 +206,15 @@ export default function KioskPage() {
     };
 
     return (
-        <div className="flex flex-col h-screen w-full bg-gray-800 relative overflow-hidden">
+        <div className="flex flex-col h-screen w-full bg-gray-100 relative overflow-hidden">
 
             {/* 1. Header & Categories */}
-            <div className="bg-gray-800 border-b border-gray-700 shrink-0 z-30">
+            <div className="bg-gray-100 border-b border-gray-300 shrink-0 z-30">
                 <div className="pt-8 px-6 pb-2 text-center">
-                    <h1 className="text-4xl font-black text-white tracking-tight leading-tight">
+                    <h1 className="text-4xl font-black text-gray-900 tracking-tight leading-tight">
                         The Collegiate Grill
                     </h1>
-                    <p className="text-gray-400 font-bold tracking-widest text-sm uppercase mt-1">Since 1947</p>
+                    <p className="text-gray-600 font-bold tracking-widest text-sm uppercase mt-1">Since 1947</p>
                 </div>
 
                 <div className="flex overflow-x-auto px-4 py-4 gap-3 scrollbar-hide items-center">
@@ -223,7 +224,7 @@ export default function KioskPage() {
                             <button
                                 key={cat.id || index}
                                 onClick={() => setActiveTab(cat.name)}
-                                className={`flex-shrink-0 px-6 h-18 rounded-full text-2xl font-extrabold transition-all shadow-sm border-[3px] whitespace-nowrap
+                                className={`flex-shrink-0 px-4 h-14 rounded-full text-lg font-extrabold transition-all shadow-sm border-[3px] whitespace-nowrap
                   ${activeTab === cat.name
                                         ? 'bg-red-600 text-white border-red-600 shadow-md'
                                         : 'bg-gray-700 text-gray-300 border-gray-600 hover:bg-gray-600'}`}
@@ -236,13 +237,13 @@ export default function KioskPage() {
             </div>
 
             {/* 2. Items Grid */}
-            <div className="flex-1 overflow-y-auto p-4 bg-gray-800">
+            <div className="flex-1 overflow-y-auto p-4 bg-gray-100">
                 {loading ? (
                     <div className="flex justify-center pt-20">
                         <p className="text-2xl font-bold text-gray-500 animate-pulse">Loading menu...</p>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 pb-32">
+                    <div className="grid grid-cols-3 gap-4 pb-40">
                         {filteredItems.length > 0 ? (
                             filteredItems.map((item, index) => (
                                 <ItemCard
@@ -263,22 +264,22 @@ export default function KioskPage() {
             {/* 3. Floating Cart Button */}
             <button
                 onClick={() => setIsCartOpen(true)}
-                className="absolute top-8 right-6 z-40 bg-gray-800 border-4 border-gray-700 p-4 rounded-[2.5rem] shadow-2xl active:scale-95 transition-all flex flex-col items-center justify-center gap-2 w-32 h-32"
+                className="absolute top-8 right-6 z-40 bg-white border-4 border-gray-300 p-4 rounded-[2.5rem] shadow-2xl active:scale-95 transition-all flex flex-col items-center justify-center gap-2 w-24 h-24 hover:bg-gray-50"
             >
                 <div className="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-14 h-14 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-10 h-10 text-gray-800">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                     </svg>
 
                     {cart.length > 0 && (
-                        <span className="absolute -top-3 -right-3 bg-red-600 text-white text-xl font-black w-10 h-10 flex items-center justify-center rounded-full border-4 border-white shadow-md">
+                        <span className="absolute -top-3 -right-3 bg-red-600 text-white text-lg font-black w-8 h-8 flex items-center justify-center rounded-full border-4 border-white shadow-md">
                             {cart.length}
                         </span>
                     )}
                 </div>
 
                 {cart.length > 0 && (
-                    <span className="font-black text-white text-xl tracking-tight">
+                    <span className="font-black text-gray-800 text-lg tracking-tight">
                         ${grandTotal.toFixed(0)}
                     </span>
                 )}

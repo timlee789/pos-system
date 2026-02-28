@@ -36,11 +36,11 @@ export default function KioskCart({
                     />
 
                     <motion.div
-                        initial={{ x: "100%" }}
-                        animate={{ x: 0 }}
-                        exit={{ x: "100%" }}
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "100%" }}
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="fixed top-0 right-0 h-full w-[450px] sm:w-[500px] max-w-full bg-white z-[60] shadow-2xl flex flex-col"
+                        className="fixed bottom-0 left-0 w-full h-[85vh] bg-white z-[60] shadow-2xl flex flex-col rounded-t-3xl overflow-hidden"
                         onClick={(e: React.MouseEvent) => e.stopPropagation()}
                     >
                         <div className="p-4 bg-gray-900 text-white shadow-md flex justify-between items-center shrink-0">
